@@ -5,6 +5,7 @@ describe "Showing a user" do
   it "shows the user's profile page" do
     user = User.create!(user_attributes)
 
+    sign_in(user)
     visit user_url(user)
 
     expect(current_path).to eq(user_path(user))
