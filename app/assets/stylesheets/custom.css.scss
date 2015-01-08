@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap"; 
 
+$errors-background-color: #FFC;
+$errors-text-color: #DC3D3D;
+
 /* universal */
 
 html { 
@@ -19,9 +22,6 @@ textarea {
   resize: vertical; 
 } 
 
-
-
-
 /* header */ 
 
 #logo { 
@@ -39,7 +39,24 @@ textarea {
   } 
 } 
 
+/* errors */
 
+section#errors {
+  margin: 1em 0;
+  padding: 1em;
+  background: $errors-background-color;
+
+  h2 {
+    color: $errors-text-color;
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: .5em 0;
+    font-weight: bold;
+  }
+}
 
 
 
