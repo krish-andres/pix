@@ -1,0 +1,18 @@
+<header>
+  <h1>Add Photo</h1>
+</header>
+
+<%= form_for [@user, @photo] do |f| %>
+  <p>
+    <%= f.label :image %> <br>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.label :caption %> <br>
+    <%= f.text_field :caption %>
+  </p>
+  <p>
+    <%= f.submit 'Add Photo' %>
+  </p>
+
+<% end %>

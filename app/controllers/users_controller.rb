@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @photos = @user.photos
   end
 
   def new
