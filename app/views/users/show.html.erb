@@ -2,6 +2,15 @@
   <h1><%= @user.name %></h1>
 </header>
 
+<%= link_to 'Add New Photo', new_user_photo_path(@user) %>
+<div>
+  <% @photos.each do |photo| %>
+    <div class="box panel panel-default">
+      <%= image_tag(photo.image.url(:medium)) %>
+    </div>
+  <% end %>
+</div>
+
 <nav>
   <% if current_user?(@user) %>
     <%= link_to 'Edit Account', edit_user_path(@user) %> | 
