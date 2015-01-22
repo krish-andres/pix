@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :find_user
+  before_action :find_photo, only: [:show, :edit, :update, :destroy]
 
   def new
     @photo = @user.photos.new
@@ -14,11 +15,18 @@ class PhotosController < ApplicationController
     end
   end
 
+  def show
+  end
+
 
   private
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def find_photo
+    @photo = @user.photos.find(params[:id])
   end
 
   def photo_params

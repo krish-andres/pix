@@ -2,11 +2,13 @@
   <h1><%= @user.name %></h1>
 </header>
 
-<%= link_to 'Add New Photo', new_user_photo_path(@user) %>
+<% if current_user?(@user) %>
+  <%= link_to 'Add New Photo', new_user_photo_path(@user) %>
+<% end %>
 <div>
   <% @photos.each do |photo| %>
     <div class="box panel panel-default">
-      <%= image_tag(photo.image.url(:medium)) %>
+      <%= link_to image_tag(photo.image.url(:medium)), user_photo_path(@user, photo) %>
     </div>
   <% end %>
 </div>
