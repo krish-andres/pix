@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.new(photo_params)
     if @photo.save 
-      redirect_to @user
+      redirect_to current_user
     else
       render :new
     end
@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
 
   def update
     if @photo.update(photo_params)
-      redirect_to photo_path(@photo), notice: "Photo Successfully Updated"
+      redirect_to @photo, notice: "Photo Successfully Updated"
     else 
       render :edit
     end
@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
-    redirect_to @user
+    redirect_to current_user
   end
 
 
