@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   get '/signup' => 'users#new'
-  resources :users do
-    resources :photos, except: [:index]
-  end
+  resources :users
+
+  resources :photos, except: [:index]
 
   root 'homes#show'
 end

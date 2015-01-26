@@ -2,7 +2,7 @@
   <h1>Add Photo</h1>
 </header>
 
-<%= form_for [@user, @photo] do |f| %>
+<%= form_for @photo do |f| %>
   <p>
     <%= f.label :image %> <br>
     <%= f.file_field :image %>

@@ -4,7 +4,7 @@
 
 <%= image_tag(@photo.image.url(:large)) %> <br>
 
-<%= form_for [@user, @photo] do |f| %>
+<%= form_for @photo do |f| %>
   <p>
     <%= f.label :caption %> <br>
     <%= f.text_field :caption %>

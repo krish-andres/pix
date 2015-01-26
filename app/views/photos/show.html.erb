@@ -3,11 +3,11 @@
   <%= @photo.caption %> <br> <br>
 
   <% if current_user && (@photo.user == current_user) %>
-    <%= link_to edit_user_photo_path(@user, @photo) do %>
+    <%= link_to edit_photo_path(@photo) do %>
       <span class="glyphicon glyphicon-edit"></span>
       Edit
     <% end %>
-    <%= link_to user_photo_path(@user, @photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <%= link_to @photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
       <span class="glyphicon glyphicon-trash"></span>
       Delete
     <% end %>
