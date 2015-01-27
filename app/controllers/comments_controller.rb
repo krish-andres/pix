@@ -6,9 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @photo.comments.new(comment_params)
     @comment.user = current_user
-    if @comment.save
-      redirect_to :back
-    end
+    redirect_to :back
   end
 
   def destroy

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :user_groups, dependent: :destroy
+  has_many :groups, through: :user_groups
 
 
   validates :name, presence: true

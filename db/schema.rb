@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127011712) do
+ActiveRecord::Schema.define(version: 20150127204859) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20150127011712) do
 
   add_index "comments", ["photo_id"], name: "index_comments_on_photo_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "caption"
@@ -36,6 +42,16 @@ ActiveRecord::Schema.define(version: 20150127011712) do
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"
+
+  create_table "user_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id"
+  add_index "user_groups", ["user_id"], name: "index_user_groups_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
