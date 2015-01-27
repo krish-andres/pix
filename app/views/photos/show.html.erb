@@ -20,6 +20,9 @@
       <strong><%= comment.user.name if comment.user %></strong><br>
       <p><%= comment.body %></p>
       <p><%= comment.created_at %></p>
+      <% if current_user && (comment.user == current_user) %>
+        <%= link_to 'Delete', photo_comment_path(@photo, comment), method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %> 
     </div>
   <% end %>
     

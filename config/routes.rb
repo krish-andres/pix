@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :photos, except: [:index] do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   root 'homes#show'
