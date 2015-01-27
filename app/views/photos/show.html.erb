@@ -12,4 +12,24 @@
       Delete
     <% end %>
   <% end %>
+
+  <div class="panel-body">
+  <% @comments.each do |comment| %>
+  <hr>
+    <div>
+      <strong><%= comment.user.name if comment.user %></strong><br>
+      <p><%= comment.body %></p>
+      <p><%= comment.created_at %></p>
+    </div>
+  <% end %>
+    
+  </div>
+
+  <div class="panel-body">
+    <%= form_for [@photo, @new_comment] do |f| %>
+
+      <%= f.text_area :body, cols: 75, rows: 2 %> <br>
+      <%= f.submit "Post Comment" %>
+    <% end %>
+  </div>
 </div>
