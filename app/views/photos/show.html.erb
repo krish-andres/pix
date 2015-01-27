@@ -30,9 +30,10 @@
 
   <div class="panel-body">
     <%= form_for [@photo, @new_comment] do |f| %>
-
-      <%= f.text_area :body, cols: 75, rows: 2 %> <br>
-      <%= f.submit "Post Comment" %>
+      <div class="form-group">      
+        <%= f.text_area :body, cols: 75, rows: 2, class: "form-control" %> <br>
+        <%= f.submit "Post Comment", class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>

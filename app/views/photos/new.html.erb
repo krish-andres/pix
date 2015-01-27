@@ -3,16 +3,16 @@
 </header>
 
 <%= form_for @photo do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :image %> <br>
-    <%= f.file_field :image %>
-  </p>
-  <p>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :caption %> <br>
-    <%= f.text_field :caption %>
-  </p>
-  <p>
-    <%= f.submit 'Add Photo' %>
-  </p>
+    <%= f.text_field :caption, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit 'Add Photo', class: "btn btn-primary" %>
+  </div>
 
 <% end %>
