@@ -20,7 +20,8 @@
   </div>
   <div class="form-group">
     <% unless @user.new_record? %>
-      <%= f.submit 'Update Account', class: "btn btn-primary" %>
+      <%= f.submit 'Update Account', class: "btn btn-primary" %> <br> <br>
+      <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     <% else %>
       <%= f.submit 'Create Account', class: "btn btn-primary" %>
     <% end %>

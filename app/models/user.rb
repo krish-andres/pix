@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :user_groups, dependent: :destroy
   has_many :groups, through: :user_groups
+  has_many :albums
 
 
   validates :name, presence: true

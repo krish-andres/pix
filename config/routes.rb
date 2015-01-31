@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :albums
+
   resources :groups
 
   get '/signin' => 'sessions#new'
