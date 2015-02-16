@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-
-  resources :albums
-
-  resources :groups
+  resources :groups do
+    resources :albums
+  end
 
   get '/signin' => 'sessions#new'
   resource :session, only: [:new, :create, :destroy]

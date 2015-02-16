@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @albums = @group.albums
   end
 
   def new
