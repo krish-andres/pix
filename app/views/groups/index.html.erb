@@ -1,0 +1,11 @@
+<div class="container">
+  <header>
+    <h1>My Groups</h1>
+  </header>
+
+  <ul>
+    <% @groups.each do |group| %>
+      <li><%= link_to group.name, group %></li>
+    <% end %>
+  </ul>
+</div>

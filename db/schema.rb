@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131011138) do
+ActiveRecord::Schema.define(version: 20150209210337) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(version: 20150131011138) do
   create_table "user_groups", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",      default: false
   end
 
   add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id"

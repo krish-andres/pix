@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user?
   
+  def is_group_admin?(user, group)
+    user.user_groups.find_by(group: group).admin == true
+  end
+  helper_method :is_group_admin?
 end

@@ -1,0 +1,19 @@
+<div class="container">
+  <header>
+    <h1>Create Group</h1>
+  </header>
+
+  <%= form_for @group do |f| %>
+    <div class="form-group">
+      <%= render 'shared/errors', object: @group %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %> <br>
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Create Group", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= link_to "Cancel", root_path %>
+</div>

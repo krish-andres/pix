@@ -17,6 +17,7 @@ gem 'aws-sdk'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
+  gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'minitest', '~> 5.5.0'

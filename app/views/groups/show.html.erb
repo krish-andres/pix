@@ -1,0 +1,9 @@
+<div class="container">
+  <header>
+   <h1><%= @group.name %></h1>
+  </header>
+
+  <% if is_group_admin?(current_user, @group) %>
+    <%= link_to "Delete", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <% end %>
+</div>
