@@ -3,7 +3,22 @@
    <h1><%= @group.name %></h1>
   </header>
 
-  <% if is_group_admin?(current_user, @group) %>
-    <%= link_to "Delete", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-  <% end %>
+  <div class="btn-group" role="group" aria-label="...">
+    <%= link_to "Add Album", new_group_album_path(@group), class: "btn btn-primary" %>
+  </div>
+  <br><br>
+
+  <div>
+    <% @albums.each do |album| %>
+      <div>
+        <%= link_to album.name, group_album_path(@group, album) %>
+      </div>
+    <% end %>
+  </div>
+  <br><br>
+  <div>
+    <% if is_group_admin?(current_user, @group) %>
+      <%= link_to "Delete", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <% end %>
+  </div>
 </div>

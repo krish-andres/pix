@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
     user.user_groups.find_by(group: group).admin == true
   end
   helper_method :is_group_admin?
+
+  def album_creator?(album, user)
+    user == album.user
+  end
+  helper_method :album_creator?
+
 end

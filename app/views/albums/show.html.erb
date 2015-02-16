@@ -1,0 +1,22 @@
+<div class="container">
+  <header>
+    <h1><%= @album.name %></h1>
+  </header>
+  <br>
+
+  <div>
+    <%= link_to "Add New Photo", new_photo_path, class: "btn btn-default" %>
+  </div>
+
+  <div>
+    <!-- Iterate Through photos and display them here!! -->
+      <div class="box panel panel-default">
+      </div>
+  </div>
+
+  <br>
+  <% if album_creator?(@album, current_user) %>
+    <%= link_to "Delete", group_album_path(@group, @album), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <% end %>
+
+</div>
