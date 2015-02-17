@@ -2,7 +2,7 @@
   <h1>Add Photo</h1>
 </header>
 
-<%= form_for @photo do |f| %>
+<%= form_for [@group, @album, @photo] do |f| %>
   <div class="form-group">
     <%= render 'shared/errors', object: @photo %>
   </div>

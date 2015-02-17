@@ -1,16 +1,19 @@
 class PhotosController < ApplicationController
   before_action :require_signin
+  before_action :find_group
+  before_action :find_album
   before_action :find_photo, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
-    @photo = current_user.photos.new
+    @photo = @album.photos.new
   end
 
   def create
-    @photo = current_user.photos.new(photo_params)
+    @photo = @album.photos.new(photo_params)
+    @photo.user = current_user
     if @photo.save 
-      redirect_to current_user
+      redirect_to group_album_path(@group, @album), notice: "Photo Successfully Created!"
     else
       render :new
     end
@@ -26,7 +29,7 @@ class PhotosController < ApplicationController
 
   def update
     if @photo.update(photo_params)
-      redirect_to @photo, notice: "Photo Successfully Updated"
+      redirect_to @photo, notice: "Photo Successfully Updated!"
     else 
       render :edit
     end
@@ -34,7 +37,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
-    redirect_to current_user
+    redirect_to group_album_path(@group, @album)
   end
 
 
@@ -42,6 +45,14 @@ class PhotosController < ApplicationController
 
   def find_photo
     @photo = Photo.find(params[:id])
+  end
+
+  def find_album
+    @album = Album.find(params[:album_id])
+  end
+
+  def find_group
+    @group = Group.find(params[:group_id])
   end
 
   def correct_user

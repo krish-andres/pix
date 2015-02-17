@@ -31,8 +31,7 @@ class GroupsController < ApplicationController
   def edit
   end
 
-  def update
-    
+  def update  
   end
 
   def destroy

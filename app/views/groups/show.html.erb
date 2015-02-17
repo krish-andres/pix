@@ -18,7 +18,7 @@
   <br><br>
   <div>
     <% if is_group_admin?(current_user, @group) %>
-      <%= link_to "Delete", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <%= link_to "Delete Group", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     <% end %>
   </div>
 </div>

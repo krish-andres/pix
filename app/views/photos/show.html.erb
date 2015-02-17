@@ -3,11 +3,11 @@
   <%= @photo.caption %> <br> <br>
 
   <% if current_user && (@photo.user == current_user) %>
-    <%= link_to edit_photo_path(@photo) do %>
+    <%= link_to edit_group_album_photo_path(@group, @album, @photo) do %>
       <span class="glyphicon glyphicon-edit"></span>
       Edit
     <% end %>
-    <%= link_to @photo, method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <%= link_to group_album_photo_path(@group, @album, @photo), method: :delete, data: { confirm: 'Are you sure?' } do %>
       <span class="glyphicon glyphicon-trash"></span>
       Delete
     <% end %>
@@ -21,7 +21,7 @@
       <p><%= comment.body %></p>
       <p><%= comment.created_at %></p>
       <% if current_user && (comment.user == current_user) %>
-        <%= link_to 'Delete', photo_comment_path(@photo, comment), method: :delete, data: { confirm: 'Are you sure?'} %>
+        <%= link_to 'Delete', group_album_photo_comment_path(@group, @album, @photo, comment), method: :delete, data: { confirm: 'Are you sure?'} %>
       <% end %> 
     </div>
   <% end %>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="panel-body">
-    <%= form_for [@photo, @new_comment] do |f| %>
+    <%= form_for [@group, @album, @photo, @new_comment] do |f| %>
       <div class="form-group">      
         <%= f.text_area :body, cols: 75, rows: 2, class: "form-control" %> <br>
         <%= f.submit "Post Comment", class: "btn btn-primary" %>

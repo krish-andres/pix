@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to @photo
+    redirect_to :back
   end
 
 
@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
   def find_photo
     @photo = Photo.find(params[:photo_id])
   end
+
 
   def comment_params
     params.require(:comment).permit(:body)

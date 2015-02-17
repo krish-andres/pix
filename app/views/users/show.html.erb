@@ -8,15 +8,7 @@
   <% if current_user?(@user) %>
     <div class="btn-group" role="group" aria-label="...">
       <%= link_to "My Groups", groups_path, class: "btn btn-default" %>
-      <%= link_to "Add New Photo", new_photo_path, class: "btn btn-default" %>
     </div>
   <% end %>
-  <div>
-    <% @photos.each do |photo| %>
-      <div class="box panel panel-default">
-        <%= link_to image_tag(photo.image.url(:medium)), photo %>
-      </div>
-    <% end %>
-  </div>
 </div>
 
