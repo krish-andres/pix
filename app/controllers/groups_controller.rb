@@ -31,7 +31,12 @@ class GroupsController < ApplicationController
   def edit
   end
 
-  def update  
+  def update 
+    if @group.update(group_params)
+      redirect_to @group, notice: "Group Successfully Updated!"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -46,7 +51,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :image)
+    params.require(:group).permit(:name, :image, :privacy)
   end
 
   def check_group_admin

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :groups, except: [:edit, :update] do
+  resources :groups do
     resources :albums, except: [:index, :edit, :update] do
       resources :photos, except: [:index] do
         resources :comments, only: [:create, :destroy]

@@ -1,6 +1,7 @@
 <div class="container">
   <header>
    <h1><%= @group.name %></h1>
+   <p>(<%= @group.privacy %> Group)</p>
    <%= image_tag(@group.image.url(:thumb)) %>
   </header>
   <br>
@@ -22,6 +23,7 @@
   <br><br>
   <div>
     <% if is_group_admin?(current_user, @group) %>
+      <%= link_to "Edit Group", edit_group_path(@group), class: "btn btn-primary" %>
       <%= link_to "Delete Group", @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     <% end %>
   </div>
