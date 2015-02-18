@@ -11,8 +11,10 @@
   <div>
     <% @albums.each do |album| %>
       <div>
-        <%= link_to album.name, group_album_path(@group, album) %>
+        <%= link_to album.name, group_album_path(@group, album) %> <br>
+        <%= link_to image_for(album), group_album_path(@group, album) %>
       </div>
+      <br>
     <% end %>
   </div>
   <br><br>
