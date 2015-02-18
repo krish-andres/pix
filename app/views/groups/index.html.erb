@@ -3,9 +3,12 @@
     <h1>My Groups</h1>
   </header>
 
-  <ul>
+  <div>
     <% @groups.each do |group| %>
-      <li><%= link_to group.name, group %></li>
+      <div class="box panel panel-default">
+        <%= link_to group.name, group %> <br>
+        <%= link_to image_tag(group.image.url(:medium)), group %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
